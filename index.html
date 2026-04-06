@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Uriel XIT</title>
+
+<style>
+body{
+    margin:0;
+    background: radial-gradient(circle, #1a0000, #000);
+    font-family:Arial;
+    color:white;
+    overflow:hidden;
+}
+
+/* ANIMAÇÃO FUNDO */
+body::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255,0,0,0.05),
+        rgba(255,0,0,0.05) 1px,
+        transparent 1px,
+        transparent 40px
+    );
+    animation: scan 5s linear infinite;
+}
+
+@keyframes scan{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(40px);}
+}
+
+/* LOGIN */
+#login{
+    width:320px;
+    background:#0d0d0d;
+    border:2px solid red;
+    border-radius:15px;
+    padding:20px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    box-shadow:0 0 30px red;
+    animation: fadeIn 1s ease;
+}
+
+#login img{
+    width:130px;
+    border-radius:50%;
+    box-shadow:0 0 20px red;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 10px red;}
+    50%{box-shadow:0 0 30px red;}
+    100%{box-shadow:0 0 10px red;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translate(-50%,-60%);}
+    to{opacity:1; transform:translate(-50%,-50%);}
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:8px;
+    border:none;
+    outline:none;
+    background:#1a1a1a;
+    color:white;
+    border-radius:5px;
+}
+
+button{
+    background:red;
+    border:none;
+    padding:10px;
+    width:95%;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff1a1a;
+    box-shadow:0 0 15px red;
+}
+
+/* PAINEL */
+#painel{
+    display:none;
+    width:360px;
+    background:#0d0d0d;
+    border:2px solid red;
+    border-radius:15px;
+    padding:15px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 40px red;
+    animation: fadeIn 1s ease;
+}
+
+.titulo{
+    text-align:center;
+    font-size:22px;
+    color:red;
+    margin-bottom:10px;
+    text-shadow:0 0 10px red;
+}
+
+.func{
+    background:#1a1a1a;
+    margin:6px 0;
+    padding:10px;
+    border-radius:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.3s;
+}
+
+.func:hover{
+    box-shadow:0 0 10px red;
+}
+
+.slider{
+    width:100%;
+}
+</style>
+
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+    <img src="logo.png">
+    <h3>Uriel XIT</h3>
+    <input type="text" id="user" placeholder="Usuário">
+    <input type="password" id="pass" placeholder="Senha">
+    <button onclick="entrar()">ENTRAR</button>
+</div>
+
+<!-- PAINEL -->
+<div id="painel">
+    <div class="titulo">Uriel XIT</div>
+
+    <div class="func">Aimbot <input type="checkbox"></div>
+    <div class="func">ESP <input type="checkbox"></div>
+    <div class="func">No Recoil <input type="checkbox"></div>
+    <div class="func">Aim Lock <input type="checkbox"></div>
+
+    <div class="func">
+        FOV
+    </div>
+    <input type="range" min="0" max="100" value="0" class="slider">
+
+    <div class="func">Auto Fire <input type="checkbox"></div>
+    <div class="func">Fast Scope <input type="checkbox"></div>
+    <div class="func">Wall View <input type="checkbox"></div>
+    <div class="func">Radar <input type="checkbox"></div>
+
+</div>
+
+<script>
+function entrar(){
+    var u = document.getElementById("user").value;
+    var p = document.getElementById("pass").value;
+
+    if(u == "Uriel XIT" && p == "FFH4X"){
+        document.getElementById("login").style.display="none";
+        document.getElementById("painel").style.display="block";
+    }else{
+        alert("Senha ou usuário errado");
+    }
+}
+</script>
+
+</body>
+</html>
